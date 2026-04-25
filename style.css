@@ -800,3 +800,260 @@ body {
   }
 }
 
+ * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      
+    }
+
+    /* main container */
+    .slider-container {
+      max-width: 1100px;
+      width: 100%;
+      margin: 0 auto;
+      position: relative;
+      background: transparent;
+      border-radius: 2rem;
+    }
+
+    /* header & optional auto-scroll toggle */
+    .slider-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      margin-bottom: 1.8rem;
+      padding: 0 0.5rem;
+    }
+    .slider-header h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #1A2A3F, #2C3E50);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      letter-spacing: -0.3px;
+    }
+    .auto-toggle {
+      background: white;
+      border: 1px solid #cbd5e0;
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+      font-family: inherit;
+      color: #2d3e50;
+    }
+    .auto-toggle:hover {
+      background: #eef2ff;
+      border-color: #94a3b8;
+      transform: scale(0.97);
+    }
+    .auto-toggle.active {
+      background: #2c3e50;
+      color: white;
+      border-color: #2c3e50;
+    }
+
+    /* slider track wrapper */
+    .slider-wrapper {
+      position: relative;
+      overflow: hidden;
+      border-radius: 28px;
+      padding: 0.5rem 0 1rem 0;
+    }
+
+    .slider-track {
+      display: flex;
+      gap: 1.75rem;
+      transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      will-change: transform;
+      cursor: grab;
+    }
+    .slider-track:active {
+      cursor: grabbing;
+    }
+
+    /* CARD DESIGN — clean modern e‑commerce */
+    .book-card {
+      flex: 0 0 calc(25% - 1.3125rem);  /* default desktop: 4 cards visible? we handle via media queries */
+      min-width: 0;
+      background: #ffffff;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.02);
+      transition: all 0.3s ease;
+      backdrop-filter: blur(0px);
+      border: 1px solid rgba(255,255,255,0.4);
+    }
+    .book-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 40px -12px rgba(0, 0, 0, 0.2);
+      border-color: #e2e8f0;
+    }
+
+    /* image container with zoom effect */
+    .card-img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      background: #f1f5f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      display: block;
+    }
+    .book-card:hover .card-img img {
+      transform: scale(1.06);
+    }
+
+    /* content area */
+    .card-content {
+      padding: 1.2rem 1rem 1.5rem;
+    }
+    .book-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.3;
+      margin-bottom: 0.5rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .book-description {
+      font-size: 0.85rem;
+      line-height: 1.45;
+      color: #475569;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-top: 0.3rem;
+    }
+
+    /* navigation arrows */
+    .nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(6px);
+      border: 1px solid #e2e8f0;
+      width: 44px;
+      height: 44px;
+      border-radius: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 12;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+      transition: all 0.2s;
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: #1e293b;
+    }
+    .nav-btn:hover {
+      background: white;
+      transform: translateY(-50%) scale(1.05);
+      box-shadow: 0 12px 22px rgba(0, 0, 0, 0.12);
+      border-color: #cbd5e1;
+    }
+    .nav-left {
+      left: -18px;
+    }
+    .nav-right {
+      right: -18px;
+    }
+
+    /* pagination / dots (optional indicator) */
+    .slider-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.55rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+    .dot {
+      width: 8px;
+      height: 8px;
+      background: #cbd5e1;
+      border-radius: 20px;
+      transition: all 0.25s;
+      cursor: pointer;
+    }
+    .dot.active {
+      width: 28px;
+      background: #2c3e50;
+    }
+
+    /* ========== RESPONSIVE BREAKPOINTS ========== */
+    /* Desktop: show 3-4 cards at a time. We use 4 for large, 3 for medium-large */
+    @media (min-width: 1280px) {
+      .book-card {
+        flex: 0 0 calc(25% - 1.3125rem);  /* 4 cards visible, gap 1.75rem => 100%/4 - gap adjustment */
+      }
+    }
+    /* standard desktop (1024px - 1279px) show 3 cards */
+    @media (min-width: 1024px) and (max-width: 1279px) {
+      .book-card {
+        flex: 0 0 calc(33.333% - 1.166rem);
+      }
+    }
+    /* Tablet: show 2 cards */
+    @media (min-width: 640px) and (max-width: 1023px) {
+      .book-card {
+        flex: 0 0 calc(50% - 0.875rem);
+      }
+      .nav-left {
+        left: -10px;
+      }
+      .nav-right {
+        right: -10px;
+      }
+    }
+    /* Mobile: show 1 card */
+    @media (max-width: 639px) {
+      .book-card {
+        flex: 0 0 100%;
+      }
+      .nav-left {
+        left: 4px;
+      }
+      .nav-right {
+        right: 4px;
+      }
+      .nav-btn {
+        width: 38px;
+        height: 38px;
+        font-size: 1.3rem;
+        background: rgba(255,255,255,0.96);
+      }
+      .slider-header h2 {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* for better touch & smooth scroll */
+    @media (hover: hover) {
+      .book-card {
+        transition: transform 0.25s ease, box-shadow 0.3s;
+      }
+    }
